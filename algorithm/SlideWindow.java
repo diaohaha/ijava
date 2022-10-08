@@ -23,15 +23,16 @@ public class SlideWindow {
 }
 
 /**
- * 
  */
 class Solution {
+    /**
+     * 给你一个字符串 s ，它只包含三种字符 a, b 和 c 。
+     * 请你返回 a，b 和 c 都 至少 出现过一次的子字符串数目。
+     */
     public int numberOfSubstrings(String s) {
-
         int answer = 0;
         int[] counts = new int[3];
         char[] chars = s.toCharArray();
-
         for (int left = 0, right = 0; right < chars.length; right++) {
 
             counts[chars[right] - 'a']++;
@@ -39,11 +40,8 @@ class Solution {
                 counts[chars[left++] - 'a']--;
                 answer += chars.length - right;
             }
-
         }
-
         return answer;
-
     }
 
     // int 是基本数据类型，int 变量存储的是数值。
